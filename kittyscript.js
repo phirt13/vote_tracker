@@ -37,7 +37,6 @@ kittyPictureRight.renderRight();
 kittyPictureLeft = kittyArrLeft[Math.floor(Math.random() * kittyArrLeft.length)];
 kittyPictureLeft.renderLeft();
 
-
 var kittyRightClick = function(event) {
     kittyPictureRight.votes += 1;
     // console.log(kittyPictureRight);
