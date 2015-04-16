@@ -3,7 +3,6 @@
 $(function() {
 
   window.ultimateKittyList = [];
-  var kittyarrObj = [];
   var images;
 
   // var saveToLocalStorage = function(data) {
