@@ -3,7 +3,6 @@
 $(function() {
 
     window.BattleRoyale = function() {
-
         var kittyArrObj = [];
         var kittyPictureRight;
         var kittyPictureLeft;

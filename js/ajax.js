@@ -4,7 +4,6 @@ $(function() {
 
   window.ultimateKittyList = [];
   var images;
-
   // var saveToLocalStorage = function(data) {
   //   localStorage.setItem('ajaxData', JSON.stringify(data));
   // };
@@ -31,7 +30,7 @@ $(function() {
     images = res.data.images
     //definitely need this
     pushKitties(images);
-    BattleRoyal();
+    BattleRoyale();
     //this runs the whole choice game itself.  Pretty wild that it has to work this way
   })
   //It seems that when .done drops the program is DONE.
