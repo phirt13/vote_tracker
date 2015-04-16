@@ -4,10 +4,12 @@ This is a voting app that tracks the cuteness votes of 14 kitties.
 
 2 kitties are displayed each round and the user is asked to click on the kitty image that they find cutest.
 
-The kitties are stored in two arrays: one with the first 7 kitties; another with the second 7 kitties.
-This prevents two of the same kitties from being displayed in the same round.
+The kitty images are stored on Imuger.  AJAX transfers them.  The url links are extracted and stored into an array.  This array is then filtered through an object constructer and which designates kitties with votes and (eventually names).
 
-Each time a user votes for a kitty the vote is added to the total votes of that kitty.
+
+To prevent two of the same kitties from being displayed in the same round a random array number is assinged to the rendering functions and this number is checked to be sure that it is not the same number.
+
+Each time a user votes for a kitty a vote is added to the total votes of that kitty.
 
 A graph which displays the amount of total votes for each kitty changes as each kitty acquires more votes.
 
