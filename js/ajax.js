@@ -32,7 +32,7 @@ $(function() {
     images = res.data.images
     //definitely need this
     pushKitties(images);
-    KittyKombat();
+    BattleRoyal();
     //this runs the whole choice game itself.  Pretty wild that it has to work this way
   })
   //It seems that when .done drops the program is DONE.

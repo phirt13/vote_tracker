@@ -2,12 +2,12 @@
 
 $(function() {
 
-    window.KittyKombat = function() {
+    window.BattleRoyale = function() {
 
         var kittyArrObj = [];
         var kittyPictureRight;
         var kittyPictureLeft;
-        //Want to put an Array of Names here and push them into the ultimateKittyList
+        //Want to put an Array of Names here and push them into the kittyArrObj[]
         var Kitty = function(fileName) {
             this.fileName = fileName;
             this.votes = 1;
