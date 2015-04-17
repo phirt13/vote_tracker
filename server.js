@@ -6,11 +6,14 @@ app.use(express.static(__dirname + "/public"));
 
 app.get("/secret", function(request, response) {
   response.send('Well done.  Tell nobody!');
-
 });
 
 app.get("/", function(request, response) {
   response.sendFile(__dirname + '/public/kittyindex.html');
+});
+
+app.get('*', function(req, res){
+  res.sendFile(__dirname + '/public/404.html');
 });
 
 app.listen(port, function() {
