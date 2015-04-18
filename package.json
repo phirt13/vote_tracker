@@ -1,0 +1,24 @@
+{
+  "name": "vote_tracker",
+  "version": "1.0.0",
+  "description": "Battle Royal: 14 kitties enter one shall leave.  Vote for the cutest kitty.  Only cuttest of kitties shall remain! ",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.12.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phirt13/vote_tracker.git"
+  },
+  "author": "mooseMunch13",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phirt13/vote_tracker/issues"
+  },
+  "homepage": "https://github.com/phirt13/vote_tracker"
+}
