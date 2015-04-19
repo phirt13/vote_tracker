@@ -6,9 +6,10 @@ $(function() {
         var kittyArrObj = [];
         var kittyPictureRight;
         var kittyPictureLeft;
-        //Want to put an Array of Names here and push them into the kittyArrObj[]
-        var Kitty = function(fileName) {
+        var kittyNames = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N']
+        var Kitty = function(fileName, kittyName) {
             this.fileName = fileName;
+            this.kittyName = kittyName;
             this.votes = 1;
         }
         //Then will add this.name to my constructor to assign names to kitties
@@ -16,8 +17,8 @@ $(function() {
         ultimateKittyList = window.ultimateKittyList;
         ultimateKittyList.forEach(function(item) {
         kittyArrObj.push(new Kitty(item));
-        // console.log(kittyArrObj);
-        // console.log(kittyArrObj[0].fileName);
+
+
             });
 
         var randomKitty = function() {
@@ -39,9 +40,12 @@ $(function() {
 
         $(function() {
             $('img#contestant-1').on('click', function() {
+
                 var $newButton = $('<button id="next">NEXT ROUND!!!</button>');
                 $('canvas#looper').after($newButton);
                 kittyArrObj[kittyPictureLeft].votes += 1
+                console.log(kittyArrObj[kittyPictureLeft]);
+                console.log(kittyArrObj);
                 event.preventDefault();
                 loopDAloop();
                 $('img#contestant-2').fadeToggle();
@@ -49,7 +53,8 @@ $(function() {
                     $('img#contestant-2').show();
                     randomKitty();
                     event.preventDefault();
-                    $('button#next').remove();
+                    console.log(kittyArrObj[kittyPictureLeft])
+                    // $('button#next').remove();
                     });
             });
 
@@ -74,7 +79,8 @@ $(function() {
         var looperData = [
             {
                 value: kittyArrObj[0].votes,
-                color: "#FFA200" //--------------------
+                color: "#FFA200",
+                label: 'kitty1'
             },
             {
                 value: kittyArrObj[1].votes,
