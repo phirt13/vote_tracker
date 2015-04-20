@@ -44,8 +44,8 @@ $(function() {
                 var $newButton = $('<button id="next">NEXT ROUND!!!</button>');
                 $('canvas#looper').after($newButton);
                 kittyArrObj[kittyPictureLeft].votes += 1
-                console.log(kittyArrObj[kittyPictureLeft]);
-                console.log(kittyArrObj);
+                // console.log(kittyArrObj[kittyPictureLeft]);
+                // console.log(kittyArrObj);
                 event.preventDefault();
                 loopDAloop();
                 $('img#contestant-2').fadeToggle();
@@ -53,8 +53,8 @@ $(function() {
                     $('img#contestant-2').show();
                     randomKitty();
                     event.preventDefault();
-                    console.log(kittyArrObj[kittyPictureLeft])
-                    // $('button#next').remove();
+                    // console.log(kittyArrObj[kittyPictureLeft])
+                    $('button#next').remove();
                     });
             });
 
