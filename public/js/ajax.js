@@ -4,10 +4,9 @@ $(function() {
 
   window.ultimateKittyList = [];
   var images;
-  // var saveToLocalStorage = function(data) {
-  //   localStorage.setItem('ajaxData', JSON.stringify(data));
-  // };
-  //LOL I don't think I need this but for now I am not gonna mess with this until I KNOW I dont need this...
+  var saveToLocalStorage = function(data) {
+  localStorage.setItem('ajaxData', JSON.stringify(data));
+  };
 
   var pushKitties = function(images) {
     images.forEach(function(img) {
@@ -16,8 +15,7 @@ $(function() {
     });
   };
 
-  //saveToLocalStorage(images);
-  //Same goes for this...
+  saveToLocalStorage(images);
 
   $.ajax({
     url: 'https://api.imgur.com/3/album/gCkFl',

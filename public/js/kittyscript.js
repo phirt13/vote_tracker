@@ -6,7 +6,6 @@ $(function() {
         var kittyArrObj = [];
         var kittyPictureRight;
         var kittyPictureLeft;
-        var kittyNames = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N']
         var Kitty = function(fileName, kittyName) {
             this.fileName = fileName;
             this.kittyName = kittyName;
@@ -16,10 +15,9 @@ $(function() {
         //window below shoes how the decleration of window.ultimateKittyList from ajax.js works
         ultimateKittyList = window.ultimateKittyList;
         ultimateKittyList.forEach(function(item) {
-        kittyArrObj.push(new Kitty(item));
-
-
-            });
+            kittyArrObj.push(new Kitty(item));
+        // console.log(kittyArrObj);
+        });
 
         var randomKitty = function() {
              kittyPictureRight = Math.floor(Math.random() * ultimateKittyList.length);
@@ -39,38 +37,35 @@ $(function() {
 
 
         $(function() {
-            $('img#contestant-1').on('click', function() {
-
-                var $newButton = $('<button id="next">NEXT ROUND!!!</button>');
-                $('canvas#looper').after($newButton);
+            $('img#contestant-1').click(function() {
+                var $newButton = $('<button id="next-kitties">FIGHT!</button>');
+                $('#go-kitty').html($newButton);
                 kittyArrObj[kittyPictureLeft].votes += 1
-                // console.log(kittyArrObj[kittyPictureLeft]);
-                // console.log(kittyArrObj);
                 event.preventDefault();
                 loopDAloop();
-                $('img#contestant-2').fadeToggle();
-                $('button#next').on('click', function () {
+                $('img#contestant-2').fadeOut();
+                $('button#next-kitties').click(function () {
                     $('img#contestant-2').show();
                     randomKitty();
+                    console.log(kittyArrObj);
                     event.preventDefault();
-                    // console.log(kittyArrObj[kittyPictureLeft])
-                    $('button#next').remove();
+                    console.log(kittyArrObj[kittyPictureLeft])
+                    $('button#next-kitties').remove();
                     });
             });
 
-            $('img#contestant-2').on('click', function() {
-                var $newButton = $('<button id="next">NEXT ROUND!!!</button>');
-                $('canvas#looper').after($newButton);
+            $('img#contestant-2').click(function() {
+                var $newButton = $('<button id="next-kitties">FIGHT!</button>');
+                $('#go-kitty').html($newButton);
                 kittyArrObj[kittyPictureRight].votes += 1;
                 event.preventDefault();
                 loopDAloop();
-                $('img#contestant-1').fadeToggle();
-                $('button#next').on('click', function () {
+                $('img#contestant-1').fadeOut();
+                $('button#next-kitties').click(function() {
                     $('img#contestant-1').show();
                     randomKitty();
                     event.preventDefault();
-                    $('button#next').remove();
-
+                    $('button#next-kitties').remove();
                 });
             });
         });

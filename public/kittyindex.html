@@ -1,77 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-          <title>Cutest Kitten:BATTLE ROYALE!</title>
-          <link type="text/css" href="css/kittystyle.css" rel="stylesheet" />
-          <link type="text/css" href="css/kittylayout.css" rel="stylesheet" />
-           <script src="js/deps/Chart.min.js"></script>
-  </head>
-  <body id="main-container">
-  <header id="title">
-    <h1>Cutest Kitty: BATTLE ROYAL</h1>
+<head>
+  <meta charset="UTF-8">
+  <title>Cutest Kitten:BATTLE ROYALE!</title>
+</head>
+<!-- CSS
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<link type="text/css" href="css/kittystyle.css" rel="stylesheet" />
+<link type="text/css" href="css/kittylayout.css" rel="stylesheet" />
+
+<!-- CHART.JS
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<script src="js/deps/Chart.min.js"></script>
+
+<!-- JAVASCRIPT
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<script src="js/deps/jquery.js"></script>
+<script src="js/ajax.js"></script>
+<script src="js/kittyscript.js"></script>
+
+<!-- CONTENT
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<body>
+  <header>
+    <section id="title">
+    <h1>BATTLE ROYAL</h1>
     <h2>Fourteen Kitties Will Enter.  Only ONE Will Leave</h2>
-    <hr/>
-    <p> Test your might! Choose the cutest kitty.  Only the choosiest of kitties shall remain.  This-cutest of all kittens-shall be crowned champion of Cutest Kitty: BATTLE ROYAL. </p>
-    <hr/>
+    </section>
+    <section id="choose">
+    <h3> Test your might! Choose the cutest kitty!</h3>
+    </section>
   </header>
-  <div id="main-content">
-  <article id="article1">
-    <div class="kitty1" id="kitty1">
-      <img id="contestant-1" src=""/>
-    </div>
-    <div class= "kitty2" id="kitty2">
-      <img id="contestant-2" src=""/>
-    </div>
-    <div id="graph">
+<main id="main-container">
+  <section id="battle-royal">
+    <section id="left">
+    <img id="contestant-1" src=""/>
+    </section>
     <canvas id="looper" width="200" height="200"></canvas>
-    </div>
-  </div>
-  <hr/>
-  <article id="article2">
-    <div class"scores" id="scores">
-      <table>
-        <tr>
-          <th>Kitty</th>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-            <td>8</td>
-            <td>9</td>
-            <td>10</td>
-            <td>11</td>
-            <td>12</td>
-            <td>13</td>
-            <td>14</td>
-        </tr>
-        <tr>
-          <th>Votes</th>
-            <td class="Contestants/01.jpg"></td>
-            <td class="Contestants/02.jpg"></td>
-            <td class="Contestants/03.jpg"></td>
-            <td class="Contestants/04.jpg"></td>
-            <td class="Contestants/05.jpg"></td>
-            <td class="Contestants/06.jpg"></td>
-            <td class="Contestants/07.jpg"></td>
-            <td class="Contestants/08.jpg"></td>
-            <td class="Contestants/09.jpg"></td>
-            <td class="Contestants/10.jpg"></td>
-            <td class="Contestants/11.jpg"></td>
-            <td class="Contestants/12.jpg"></td>
-            <td class="Contestants/13.jpg"></td>
-            <td class="Contestants/14.jpg"></td>
-        </tr>
-      </table>
-    </div>
-  </div>
-  </body>
+    <section id="right">
+    <img id="contestant-2" src=""/>
+    </section>
+    <section id="go-kitty">
+    </section>
+  </section>
+</main>
 
-  <script src="js/deps/jquery.js"></script>
-  <script src="js/ajax.js"></script>
-  <script src="js/kittyscript.js"></script>
-
+</body>
 </html>
