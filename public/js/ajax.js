@@ -46,62 +46,44 @@ $(function() {
 
   function battleRoyale(array) {
 
-  var Kitty = function(fileName) {
-    this.fileName = fileName;
-    this.votes = 0;
-  };
+    var Kitty = function(fileName) {
+      this.fileName = fileName;
+      this.votes = 0;
+    };
 
-  var gladiators = [];
+    var gladiators = [];
 
-  function makeContestants(rawImages, contestants) {
-      for (var i = 0; i < rawImages.length; i++) {
-        contestants.push( new Kitty(rawImages[i].link));
+    function makeContestants(rawImages, contestants) {
+        for (var i = 0; i < rawImages.length; i++) {
+          contestants.push( new Kitty(rawImages[i].link));
+        }
+        return contestants;
+    }
+
+    makeContestants(array, gladiators);
+
+    console.log(gladiators);
+
+    function selectGladiators() {
+
+      var rightPic;
+      var leftPic;
+
+      function getRandom() {
+        rightPic = Math.floor(Math.random() * gladiators.length);
+        leftPic = Math.floor(Math.random() * gladiators.length);
       }
-      return contestants;
-  }
 
-  makeContestants(array, gladiators);
+      while (rightPic === leftPic) {
+        getRandom();
+      }
 
-  console.log(gladiators);
+      $gladiatorRight.attr('src', gladiators[rightPic].fileName);
+      $gladiatorLeft.attr('src', gladiators[leftPic].fileName);
 
-  function selectGladiators() {
-
-    var rightPic;
-    var leftPic;
-
-    function getRandom() {
-      rightPic = Math.floor(Math.random() * gladiators.length);
-      leftPic = Math.floor(Math.random() * gladiators.length);
     }
 
-    while (rightPic === leftPic) {
-      getRandom();
-    }
-
-    $gladiatorRight.attr('src', gladiators[rightPic].fileName);
-    $gladiatorLeft.attr('src', gladiators[leftPic].fileName);
-  }
-
-  selectGladiators();
-
-  function beginTheGames() {
-
+    selectGladiators();
 
   }
-};
 });
-//   .done(function(res) {
-//     console.log(res);
-//     images = res.data.images
-//     //definitely need this
-//     pushKitties(images);
-//     BattleRoyale();
-//     //this runs the whole choice game itself.  Pretty wild that it has to work this way
-//   })
-//   //It seems that when .done drops the program is DONE.
-//   //So everything that you need to run needs to be included in the .done function.
-//   //In general, need to understand AJAX and JSON better.
-//   .fail(function(err) {
-//     console.log(err);
-//   });
-// });
