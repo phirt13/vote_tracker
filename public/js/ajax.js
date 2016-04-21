@@ -2,42 +2,106 @@
 
 $(function() {
 
-  window.ultimateKittyList = [];
-  var images;
-  // var saveToLocalStorage = function(data) {
-  //   localStorage.setItem('ajaxData', JSON.stringify(data));
-  // };
-  //LOL I don't think I need this but for now I am not gonna mess with this until I KNOW I dont need this...
+  //TODO implement local storage later
+  // (function localStorageCheck() {
+  //   if (localStorage.getItem('gladiators') {
+  //     battleRoyale
+  //   })
+  // })
 
-  var pushKitties = function(images) {
-    images.forEach(function(img) {
-      window.ultimateKittyList.push(img.link);
-      // console.log(window.ultimateKittyList);
+
+  var kittyPics = [];
+
+  runAjax();
+
+  function runAjax() {
+
+    $.ajax({
+      type: 'GET',
+      url: 'https://api.imgur.com/3/album/gCkFl',
+      headers: {
+        'Authorization': 'Client-ID 5ba25746768cd86'
+      },
+      success: (res) => {
+        var images = res.data.images;
+
+        for (var i = 0; i < images.length; i++) {
+          kittyPics.push(images[i]);
+        }
+        console.log(kittyPics);
+        return kittyPics;
+      },
+      error: (err) => {
+
+        console.log(err);
+
+      },
+      complete: () => {
+
+        battleRoyale(kittyPics);
+
+      }
     });
+  }
+
+  function battleRoyale(array) {
+
+  var Kitty = function(fileName) {
+    this.fileName = fileName;
+    this.votes = 0;
   };
 
-  //saveToLocalStorage(images);
-  //Same goes for this...
+  var gladiators = [];
 
-  $.ajax({
-    url: 'https://api.imgur.com/3/album/gCkFl',
-    method: 'GET',
-    headers: {
-      'Authorization': 'Client-ID 5ba25746768cd86'
+  function makeContestants(rawImages, contestants) {
+      for (var i = 0; i < rawImages.length; i++) {
+        contestants.push( new Kitty(rawImages[i].link));
+      }
+      return contestants;
+  }
+
+  makeContestants(array, gladiators);
+
+  console.log(gladiators);
+
+  function selectGladiators() {
+
+    var rightPic;
+    var leftPic;
+
+    function getRandom() {
+      rightPic = Math.floor(Math.random() * gladiators.length);
+      leftPic = Math.floor(Math.random() * gladiators.length);
     }
-  })
-  .done(function(res) {
-    images = res.data.images
-    //definitely need this
-    pushKitties(images);
-    BattleRoyale();
-    //this runs the whole choice game itself.  Pretty wild that it has to work this way
-  })
-  //It seems that when .done drops the program is DONE.
-  //So everything that you need to run needs to be included in the .done function.
-  //In general, need to understand AJAX and JSON better.
-  .fail(function(err) {
-    console.log(err);
-  });
-});
 
+    while (rightPic === leftPic) {
+      getRandom();
+    }
+
+    $gladiatorRight.attr('src', gladiators[rightPic].fileName);
+    $gladiatorLeft.attr('src', gladiators[leftPic].fileName);
+  }
+
+  selectGladiators();
+
+  function beginTheGames() {
+
+
+  }
+};
+});
+//   .done(function(res) {
+//     console.log(res);
+//     images = res.data.images
+//     //definitely need this
+//     pushKitties(images);
+//     BattleRoyale();
+//     //this runs the whole choice game itself.  Pretty wild that it has to work this way
+//   })
+//   //It seems that when .done drops the program is DONE.
+//   //So everything that you need to run needs to be included in the .done function.
+//   //In general, need to understand AJAX and JSON better.
+//   .fail(function(err) {
+//     console.log(err);
+//   });
+// });
